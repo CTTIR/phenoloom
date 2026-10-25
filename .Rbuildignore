@@ -1,0 +1,14 @@
+^orchestration$
+^\.git$
+^\.github$
+^\.gitignore$
+^\.Rproj\.user$
+^.*\.Rproj$
+^_pkgdown\.yml$
+^_site$
+^docs$
+^LICENSE\.md$
+^.*\.Rcheck$
+^.*\.tar\.gz$
+^coverage\.xml$
+^cobertura\.xml$

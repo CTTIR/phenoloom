@@ -1,0 +1,13 @@
+orchestration/
+.Rhistory
+.RData
+.Rproj.user/
+*.Rcheck/
+*.tar.gz
+_site/
+docs/
+inst/doc/
+vignettes/*.html
+vignettes/*.R
+coverage.xml
+cobertura.xml

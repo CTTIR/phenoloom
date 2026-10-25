@@ -1,0 +1,92 @@
+---
+title: "Getting started with phenoloom"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with phenoloom}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+## Install and inspect the suite
+
+`phenoloom` brings together the **CTTIR Spatial Biology Suite**. Its four
+required dependencies support segmentation, validated cell tables, reviewed
+phenotyping, and spatial analysis. Each member keeps its own analysis API.
+
+```{r install, eval=FALSE}
+install.packages("remotes")
+remotes::install_github("CTTIR/phenoloom", dependencies = NA)
+```
+
+List the suite members without attaching their packages:
+
+```{r membership}
+phenoloom::phenoloom_packages()
+```
+
+Inspect their versions in the current R library paths:
+
+```{r status}
+phenoloom::phenoloom_status()
+```
+
+The report reads installation metadata. It does not start external engines or
+test whether a specific analysis workflow is supported. Where several copies
+of a package exist, the first library in `.libPaths()` takes priority.
+
+## Choose the member for each step
+
+| Step | Package | Responsibility |
+|:--|:--|:--|
+| Segment tissue images | `segmantR` | Segmentation methods and review workflows |
+| Prepare cell tables | `cellspecR` | Imports, schema validation, and verifiable storage |
+| Assign phenotypes | `gatekeepR` | Marker gating and reviewed cell-type calls |
+| Analyze spatial patterns | `phenoscapR` | Spatial statistics and visualizations |
+
+Use each member's documented data contracts when transferring results between
+steps. Installing the suite does not establish that an arbitrary set of image
+exports and marker panels is compatible across all steps.
+
+For interactive work, `library(phenoloom)` attaches all four members. For
+scripts, explicit `package::function()` calls make function ownership clear
+and avoid ambiguity when packages export the same name.
+
+```{r help, eval=FALSE}
+library(phenoloom)
+help(package = "segmantR")
+help(package = "cellspecR")
+help(package = "gatekeepR")
+help(package = "phenoscapR")
+```
+
+## Record the environment
+
+Save the installed-version report together with the full session information
+alongside analysis outputs:
+
+```{r provenance, eval=FALSE}
+environment <- list(
+  suite = phenoloom::phenoloom_status(),
+  session = utils::sessionInfo()
+)
+saveRDS(environment, "phenoloom-environment.rds")
+```
+
+This records installed versions; it is not a lockfile or a guarantee that the
+same versions remain available. Use your project's environment-management
+workflow to preserve exact dependencies when reproducing an analysis.
+
+## External engines and licensing
+
+Optional Cellpose, StarDist, and Mesmer engines are configured through
+`segmantR`. The metapackage does not create Python environments or download
+model weights. Follow the member's installation guide for required compilers,
+system libraries, and engine-specific setup.
+
+`phenoloom` is MIT licensed. Member packages, external engines, and model
+weights keep their own licenses. Cite the packages and methods actually used
+in the analysis.

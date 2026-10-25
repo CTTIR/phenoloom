@@ -1,0 +1,42 @@
+Package: phenoloom
+Type: Package
+Title: CTTIR Spatial Biology Suite
+Version: 0.1.0
+Authors@R: person("R.", "Heller", email = "raban.heller@charite.de",
+    role = c("aut", "cre", "cph"),
+    comment = c(ORCID = "0000-0001-8006-9742"))
+Description: Installs and attaches the CTTIR spatial biology package suite:
+    'segmantR' for cell segmentation, 'cellspecR' for validated cell tables,
+    'gatekeepR' for reviewed marker gating and phenotyping, and 'phenoscapR'
+    for spatial analysis and visualization. Provides a fixed suite manifest
+    and an installed-version report. Analysis methods and optional external
+    engines remain in their respective member packages.
+License: MIT + file LICENSE
+URL: https://github.com/CTTIR/phenoloom
+BugReports: https://github.com/CTTIR/phenoloom/issues
+Depends:
+    R (>= 4.1.0),
+    segmantR,
+    cellspecR,
+    gatekeepR,
+    phenoscapR
+Imports:
+    utils
+Suggests:
+    covr,
+    knitr,
+    rmarkdown,
+    testthat (>= 3.2.0)
+Remotes:
+    CTTIR/segmantR,
+    CTTIR/cellspecR,
+    CTTIR/gatekeepR,
+    CTTIR/phenoscapR
+Additional_repositories: https://cttir.r-universe.dev
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+Config/Needs/website: CTTIR/themakR
+Encoding: UTF-8
+Language: en-US
+Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.0.0
