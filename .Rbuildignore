@@ -12,3 +12,5 @@
 ^.*\.tar\.gz$
 ^coverage\.xml$
 ^cobertura\.xml$
+^tools/branding$
+^pkgdown$

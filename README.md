@@ -1,4 +1,4 @@
-# phenoloom
+# phenoloom <img src="man/figures/logo.png" align="right" width="120" height="139" alt="phenoloom logo" />
 
 **CTTIR Spatial Biology Suite**
 
@@ -39,3 +39,8 @@ or model weights.
 
 [MIT](LICENSE.md). Member packages and external engines retain their own
 licenses. Development orchestration remains excluded from Git and R builds.
+
+## Branding
+
+Editable R sources and regeneration instructions are in
+[tools/branding](https://github.com/CTTIR/phenoloom/tree/main/tools/branding).
