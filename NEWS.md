@@ -1,5 +1,9 @@
 # phenoloom 0.1.1
 
+* Standardize the named v5 package logo across README, documentation pages
+  and available application headers, with matching light and dark artwork.
+
+
 * Simplify the metapackage to an installation framework for the four member
   packages and their required dependencies.
 * Declare suite members in `Imports` so loading the metapackage does not
