@@ -1,3 +1,13 @@
+# phenoloom 0.1.2
+
+* Check the installed suite during package checks: all four member namespaces
+  must load and the documented synthetic cell-table example must validate.
+  Loading the metapackage continues to export no functions and attach no members.
+* Clarify required native dependencies and optional segmentation backends,
+  provide a verified first-use path, and show how to record installed versions
+  and source revisions for a reproducible analysis.
+* Add package discovery metadata for the CTTIR R-universe registry.
+
 # phenoloom 0.1.1
 
 * The logo marks the suite with the CTTIR gold border it shares with cttiR,

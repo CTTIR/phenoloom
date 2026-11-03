@@ -1,7 +1,7 @@
 Package: phenoloom
 Type: Package
 Title: CTTIR Spatial Biology Suite
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: person("R.", "Heller", email = "raban.heller@charite.de",
     role = c("aut", "cre", "cph"),
     comment = c(ORCID = "0000-0001-8006-9742"))
@@ -12,7 +12,10 @@ Description: An installation framework for the CTTIR spatial biology suite.
     member packages; no additional functions or automatic attachment are
     provided.
 License: MIT + file LICENSE
-URL: https://github.com/CTTIR/phenoloom
+URL: https://github.com/CTTIR/phenoloom,
+    https://cttir.r-universe.dev/phenoloom
+X-schema.org-keywords: spatial-biology, multiplexed-imaging,
+    cell-segmentation, phenotyping, installation
 BugReports: https://github.com/CTTIR/phenoloom/issues
 Depends:
     R (>= 4.1.0)
