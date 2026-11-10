@@ -1,8 +1,8 @@
 Package: phenoloom
 Type: Package
 Title: CTTIR Spatial Biology Suite
-Version: 0.1.2
-Authors@R: person("R.", "Heller", email = "raban.heller@charite.de",
+Version: 0.2.0
+Authors@R: person("R.", "Heller", email = "raban.heller@uni-ulm.de",
     role = c("aut", "cre", "cph"),
     comment = c(ORCID = "0000-0001-8006-9742"))
 Description: An installation framework for the CTTIR spatial biology suite.
@@ -24,11 +24,6 @@ Imports:
     cellspecR,
     gatekeepR,
     phenoscapR
-Remotes:
-    CTTIR/segmantR,
-    CTTIR/cellspecR,
-    CTTIR/gatekeepR,
-    CTTIR/phenoscapR
 Additional_repositories: https://cttir.r-universe.dev
 Encoding: UTF-8
 Language: en-US

@@ -9,8 +9,8 @@ An installation framework for \pkg{segmantR}, \pkg{cellspecR},
 package dependencies.
 }
 \details{
-Install from GitHub using
-\code{remotes::install_github("CTTIR/phenoloom", dependencies = NA)}.
+Install from the CTTIR R-universe using
+\code{install.packages("phenoloom", repos = c("https://cttir.r-universe.dev", getOption("repos")))}.
 Required dependencies are installed recursively. Optional suggested packages,
 external segmentation environments, and model weights require separate setup.
 The required spatial packages include \pkg{sf} and \pkg{stars}; source builds
@@ -22,7 +22,7 @@ The metapackage exports no functions and does not attach its member packages.
 Use the installed packages directly through their own APIs, such as
 \code{cellspecR::cs_example()}.
 
-GitHub installation follows the members' current default branches. Record the
+R-universe builds follow the members' current default branches. Record the
 installed versions, source revisions and \code{sessionInfo()} with an analysis;
 pinning the metapackage alone does not pin its transitive dependencies. The
 README provides a recording recipe and a canonical cell-table write/read
@@ -38,6 +38,6 @@ cellspecR::cs_assert_valid(x)
 \url{https://r-spatial.github.io/sf/}
 }
 \author{
-R. Heller \email{raban.heller@charite.de}
+R. Heller \email{raban.heller@uni-ulm.de}
 }
 \keyword{package}

@@ -20,18 +20,19 @@ installation was exercised with R 4.6.1 on ARM64 macOS; this does not qualify
 every older R or native-library combination.
 
 ```r
-install.packages("remotes")
-remotes::install_github("CTTIR/phenoloom", dependencies = NA)
+install.packages(
+  "phenoloom",
+  repos = c("https://cttir.r-universe.dev", getOption("repos"))
+)
 ```
 
-The member packages are declared in `Imports`, with their GitHub sources in
-`Remotes`. The installation includes required dependencies recursively.
-`dependencies = NA` does not request every optional package in `Suggests`.
-The command follows the members' current GitHub default branches. It can prompt
-to update existing dependencies; for unattended installations, choose the
-[`upgrade` policy](https://remotes.r-lib.org/reference/install_github.html)
-deliberately. A fresh R library keeps an analysis environment separate from
-other projects.
+The member packages are declared in `Imports` and are distributed through the
+[CTTIR R-universe](https://cttir.r-universe.dev), which the package declares in
+`Additional_repositories`; their other required dependencies come from CRAN and
+Bioconductor. The installation includes required dependencies recursively but
+not optional packages in `Suggests`. R-universe builds follow the members'
+current GitHub default branches. A fresh R library keeps an analysis
+environment separate from other projects.
 
 Required geospatial packages include `sf` and `stars`. Prefer compatible CRAN
 binaries where available. Source builds require the compiler and GDAL, GEOS,
@@ -101,11 +102,11 @@ floating member sources or their transitive dependencies.
 
 ## Distribution status
 
-GitHub is the verified installation path. The CTTIR R-universe registry lists
-packages separately and builds them asynchronously; a registry entry does not
-prove that every suite binary is already available. CRAN submission is a
-separate target because this package depends on members distributed outside
-CRAN/Bioconductor and uses GitHub `Remotes`. See the
+The CTTIR R-universe is the installation path. It builds packages separately
+and asynchronously; a registry entry does not prove that every suite binary is
+already available. phenoloom cannot be submitted to CRAN until its four member
+packages are available from CRAN, because CRAN requires strong dependencies to
+be in mainstream repositories. See the
 [maintenance record](planning/maintenance-2026-11-03.md) for exact observed
 versions, checks and outstanding distribution gates.
 
