@@ -1,3 +1,11 @@
+# phenoloom 0.2.0
+
+* Install through the CTTIR R-universe (declared in `Additional_repositories`)
+  instead of GitHub `Remotes`; the `Remotes` field is removed.
+* Use the maintainer address raban.heller@uni-ulm.de.
+* Add `cran-comments.md`. CRAN submission remains blocked until segmantR,
+  cellspecR, gatekeepR and phenoscapR are available from CRAN.
+
 # phenoloom 0.1.2
 
 * Check the installed suite during package checks: all four member namespaces
@@ -11,7 +19,7 @@
 # phenoloom 0.1.1
 
 * The logo marks the suite with the CTTIR gold border it shares with cttiR,
-  while keeping its topic colours.
+  while keeping its topic colors.
 
 * Standardize the named v5 package logo across README, documentation pages
   and available application headers, with matching light and dark artwork.
