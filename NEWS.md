@@ -1,3 +1,9 @@
+# Development version
+
+* Add a reproducible cross-package acceptance script and platform CI for
+  canonical storage, gating, spatial counts and calibrated segmentation
+  features. The installation-only package API is unchanged.
+
 # phenoloom 0.2.0
 
 * Install through the CTTIR R-universe (declared in `Additional_repositories`)

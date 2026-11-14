@@ -78,6 +78,28 @@ cellspecR::cs_assert_valid(restored)
 Consult each member's documentation for its analysis workflows. Installing the
 suite does not by itself qualify every combination of those workflows.
 
+## Check suite interoperability
+
+From a GitHub checkout, run the installed member packages through a small
+synthetic acceptance test:
+
+```sh
+Rscript --vanilla tools/check-suite.R
+```
+
+The script checks canonical Parquet and TSV round trips, preservation of cell
+and image identities, explicit-threshold gating against a direct calculation,
+within-image spatial counts, and segmentation features with known physical
+coordinates and areas. It uses temporary files and prints installed versions,
+available source revisions and session information. Run it in the library used
+for your analysis. A missing revision is reported as unknown.
+
+The suite-integration workflow runs these checks on Linux, macOS and Windows
+against recorded checkouts of the members' default branches. It also runs
+weekly to detect changes in member packages between metapackage updates. This
+qualifies the stated synthetic software contracts; external segmentation
+engines, scientific validity and all possible workflows require separate tests.
+
 ## Record an analysis environment
 
 Default-branch installation is a moving target. Keep the installed versions and

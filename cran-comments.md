@@ -9,15 +9,23 @@ member packages have been accepted on CRAN.
 
 ## Test environments
 
-* local macOS (aarch64-apple-darwin), R 4.6.1:
-  `R CMD check --as-cran --no-manual` on the built tarball, with the member
-  packages installed from the CTTIR R-universe or from their prepared
-  tarballs. The PDF manual was built locally with TinyTeX (TeX Live 2026)
-  via `R CMD Rd2pdf` without errors; the check run itself used `--no-manual`.
-* GitHub Actions (r-lib/actions v2, `--as-cran`):
-  * macos-latest (R release)
-  * windows-latest (R release)
-  * ubuntu-latest (R devel, release, oldrel-1)
+* Local macOS (aarch64-apple-darwin), R 4.6.1, 14 November 2026:
+  full `R CMD check --as-cran` on the built tarball, including the PDF
+  manual with TinyTeX and HTML validation with current HTML Tidy.
+  Exact prepared member sources were installed into isolated audit libraries;
+  ordinary third-party dependencies were reused from the local libraries.
+  This is not a clean-machine installation claim.
+* GitHub Actions baseline at `56c218a318` (`--as-cran --no-manual`):
+  macOS and Windows R release; Ubuntu R devel, release, oldrel-1 and
+  oldrel-3. All returned success at the audit snapshot. The oldest row
+  is advisory in the shared workflow; this is not qualification of the
+  declared R 4.1 minimum. Candidate hosted results must be checked after
+  publication.
+* The standalone suite interoperability script exercises canonical storage,
+  explicit-threshold gating, within-image spatial counts and calibrated
+  segmentation features. It is development tooling excluded from the R
+  source tarball; it does not replace checks of member algorithms or
+  external engines.
 
 ## R CMD check results
 

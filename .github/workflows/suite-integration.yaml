@@ -1,0 +1,82 @@
+name: Suite integration
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 1'
+permissions:
+  contents: read
+jobs:
+  integration:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: phenoloom
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: CTTIR/segmantR
+          ref: main
+          path: members/segmantR
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: CTTIR/cellspecR
+          ref: main
+          path: members/cellspecR
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: CTTIR/gatekeepR
+          ref: main
+          path: members/gatekeepR
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: CTTIR/phenoscapR
+          ref: main
+          path: members/phenoscapR
+      - uses: r-lib/actions/setup-r@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2
+        with:
+          use-public-rspm: true
+      - name: Record source revisions
+        shell: bash
+        run: |
+          for path in phenoloom members/segmantR members/cellspecR members/gatekeepR members/phenoscapR; do
+            printf '%s\t%s\n' "$path" "$(git -C "$path" rev-parse HEAD)"
+          done > suite-revisions.tsv
+          cat suite-revisions.tsv
+      - uses: r-lib/actions/setup-r-dependencies@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2
+        with:
+          packages: |
+            local::phenoloom
+            local::members/segmantR
+            local::members/cellspecR
+            local::members/gatekeepR
+            local::members/phenoscapR
+            any::RANN
+          dependencies: 'NA'
+      - name: Install the recorded source checkouts
+        shell: bash
+        run: |
+          set -euo pipefail
+          for path in members/cellspecR members/segmantR members/gatekeepR members/phenoscapR phenoloom; do
+            R CMD INSTALL "$path"
+          done 2>&1 | tee suite-install.log
+      - name: Check installed suite contracts
+        shell: bash
+        run: |
+          set -o pipefail
+          Rscript --vanilla phenoloom/tools/check-suite.R 2>&1 | tee suite-integration.log
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: suite-integration-${{ matrix.os }}
+          path: |
+            suite-revisions.tsv
+            suite-install.log
+            suite-integration.log
+          if-no-files-found: error
