@@ -18,3 +18,4 @@
 ^cran-comments\.md$
 ^man/figures/(icon-[0-9]+\.png|logo-(dark|light|mono|symbol)\.(pdf|png|svg)|logo-with-name(-dark|-mono)?\.(pdf|svg)|logo-with-name-mono\.png|logo\.(pdf|png))$
 ^tools/check-suite\.R$
+^CITATION\.cff$
