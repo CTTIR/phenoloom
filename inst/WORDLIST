@@ -1,3 +1,4 @@
+backends
 Cellpose
 cellspecR
 cttiR
@@ -8,6 +9,7 @@ GEOS
 geospatial
 Homebrew
 lockfile
+Mesmer
 metapackage
 phenoscapR
 phenotyping

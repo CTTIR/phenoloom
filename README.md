@@ -12,7 +12,7 @@ required R dependencies:
 | [segmantR](https://github.com/CTTIR/segmantR) | Cell segmentation |
 | [cellspecR](https://github.com/CTTIR/cellspecR) | Validated cell tables |
 | [gatekeepR](https://github.com/CTTIR/gatekeepR) | Marker gating and phenotyping |
-| [phenoscapR](https://github.com/CTTIR/phenoscapR) | Spatial analysis and visualization |
+| [phenoscapR](https://github.com/CTTIR/phenoscapR) | Spatial analysis and visualisation |
 
 ## Install
 
@@ -135,10 +135,10 @@ be in mainstream repositories. See the
 [maintenance record](https://github.com/CTTIR/phenoloom/blob/main/planning/maintenance-2026-11-03.md)
 for exact observed versions, checks and outstanding distribution gates.
 
-## License
+## Licence
 
 [MIT](LICENSE.md). Member packages and external engines retain their own
-licenses. Development orchestration remains excluded from Git and R builds.
+licences. Development orchestration remains excluded from Git and R builds.
 
 ## Branding
 
