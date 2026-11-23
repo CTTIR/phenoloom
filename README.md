@@ -137,7 +137,7 @@ for exact observed versions, checks and outstanding distribution gates.
 
 ## Licence
 
-[MIT](LICENSE.md). Member packages and external engines retain their own
+[MIT](https://github.com/CTTIR/phenoloom/blob/main/LICENSE.md). Member packages and external engines retain their own
 licences. Development orchestration remains excluded from Git and R builds.
 
 ## Branding
