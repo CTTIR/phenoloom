@@ -3,10 +3,11 @@
 * Add a reproducible cross-package acceptance script and platform CI for
   canonical storage, gating, spatial counts and calibrated segmentation
   features. The installation-only package API is unchanged.
-* The acceptance script `tools/check-suite.R` also requires text with double
-  quotes to come back unchanged from Parquet and TSV storage, which cellspecR
-  1.2.0 fixed for TSV directories. It passes with segmantR 0.3.0, cellspecR
-  1.2.0, gatekeepR 1.2.0 and phenoscapR 1.0.1.
+* The acceptance script `tools/check-suite.R` also requires a sample
+  identifier with double quotes in the cell table to come back unchanged from
+  Parquet and TSV storage, which cellspecR 1.2.0 fixed for TSV directories;
+  with an earlier cellspecR the script now stops. It passes with segmantR
+  0.3.0, cellspecR 1.2.0, gatekeepR 1.2.0 and phenoscapR 1.0.1.
 * The README and the package help page name segmantR 0.3.0 as the tested
   version in which `imager` is optional.
 * The installation test also checks that `Imports` declares exactly the four

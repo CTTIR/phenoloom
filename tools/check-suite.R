@@ -24,8 +24,11 @@ check_suite <- function() {
     x$cells[[coordinate]][2] <- x$cells[[coordinate]][1]
   }
   x$measurements[1:2, "cell:CD3e:mean"] <- c(10, 30)
-  # Text with double quotes must come back unchanged from both storage formats.
-  x$images$platform <- 'simulated "synthetic" fixture'
+  # Text with double quotes in the cell table must come back unchanged from both
+  # storage formats (image metadata is stored as JSON and cannot show this).
+  quoted <- 's1 "synthetic"'
+  x$cells$sample_id[x$cells$sample_id == "s1"] <- quoted
+  x$images$sample_id[x$images$sample_id == "s1"] <- quoted
   cellspecR::cs_assert_valid(x)
   for (format in c("parquet", "tsv.gz")) {
     path <- file.path(work, format)
