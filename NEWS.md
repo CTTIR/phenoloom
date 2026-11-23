@@ -1,11 +1,12 @@
-# Development version
+# phenoloom 0.2.0
 
 * Add a reproducible cross-package acceptance script and platform CI for
   canonical storage, gating, spatial counts and calibrated segmentation
   features. The installation-only package API is unchanged.
-
-# phenoloom 0.2.0
-
+* The acceptance script `tools/check-suite.R` also requires text with double
+  quotes to come back unchanged from Parquet and TSV storage, which cellspecR
+  1.2.0 fixed for TSV directories. It passes with segmantR 0.3.0, cellspecR
+  1.2.0, gatekeepR 1.2.0 and phenoscapR 1.0.1.
 * Install through the CTTIR R-universe (declared in `Additional_repositories`)
   instead of GitHub `Remotes`; the `Remotes` field is removed.
 * Use the maintainer address raban.heller@uni-ulm.de.

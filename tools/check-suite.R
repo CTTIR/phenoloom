@@ -24,6 +24,8 @@ check_suite <- function() {
     x$cells[[coordinate]][2] <- x$cells[[coordinate]][1]
   }
   x$measurements[1:2, "cell:CD3e:mean"] <- c(10, 30)
+  # Text with double quotes must come back unchanged from both storage formats.
+  x$images$platform <- 'simulated "synthetic" fixture'
   cellspecR::cs_assert_valid(x)
   for (format in c("parquet", "tsv.gz")) {
     path <- file.path(work, format)
@@ -47,12 +49,18 @@ check_suite <- function() {
       threshold_method = "manual", threshold_args = list(CD3e = list(value = 20))
     )
     cfg <- gatekeepR::gk_config(gatekeepR::gk_signal_policy("CD3e"), panel,
-      hierarchy = gatekeepR::gk_hierarchy(list(gatekeepR::gk_rule("R1", "Signal above threshold", all_of = "CD3e")), version = "1.0.0")
+      hierarchy = gatekeepR::gk_hierarchy(
+        list(gatekeepR::gk_rule("R1", "Signal above threshold", all_of = "CD3e")),
+        version = "1.0.0"
+      )
     )
     prep <- gatekeepR::gk_prepare(y, cfg, quiet = TRUE)
     th <- gatekeepR::gk_thresholds(prep, cfg, seed = 1L)
     cl <- gatekeepR::gk_classify(prep, th, cfg)
-    stopifnot(identical(unname(cl$calls[, "CD3e"]), unname(x$measurements[, "cell:CD3e:mean"] >= 20)))
+    stopifnot(identical(
+      unname(cl$calls[, "CD3e"]),
+      unname(x$measurements[, "cell:CD3e:mean"] >= 20)
+    ))
     # Radius density agrees with independent within-image pairwise calculation.
     z <- phenoscapR::CellDensity(z, radius = 100)
     expected <- numeric(nrow(x$cells))
@@ -83,10 +91,17 @@ check_suite <- function() {
   pixels[, , 1][labels == 42L] <- 30
   img <- segmantR::new_sg_image(pixels, channels = "CD3e")
   mask <- segmantR::new_sg_mask(labels)
-  ft <- segmantR::sg_extract_features(img, mask, features = c("intensity", "morphology", "location"))
+  ft <- segmantR::sg_extract_features(
+    img, mask,
+    features = c("intensity", "morphology", "location")
+  )
   source_path <- file.path(work, "segmant.csv")
   utils::write.csv(ft, source_path, row.names = FALSE)
-  seg <- cellspecR::cs_read(source_path, format = "segmantr", pixel_size = 0.5, image_id = "frame001", sample_id = "sample001")
+  seg <- cellspecR::cs_read(
+    source_path,
+    format = "segmantr", pixel_size = 0.5,
+    image_id = "frame001", sample_id = "sample001"
+  )
   cellspecR::cs_assert_valid(seg)
   stopifnot(
     identical(seg$cells$cell_id, c("7", "42")),
