@@ -44,7 +44,7 @@ On Windows, source compilation requires Rtools matching R. On macOS, source
 compilation requires the Xcode Command Line Tools; CRAN binaries and Homebrew
 source installations have different native-library layouts.
 
-`imager` is optional in the currently tested `segmantR` 0.2.0. If you choose a
+`imager` is optional in the currently tested `segmantR` 0.3.0. If you choose a
 workflow that needs it, follow its
 [platform prerequisites](https://dahtah.github.io/imager/#dependencies), including
 XQuartz for the documented macOS installation. Optional segmentation engines
@@ -89,12 +89,12 @@ synthetic acceptance test:
 Rscript --vanilla tools/check-suite.R
 ```
 
-The script checks canonical Parquet and TSV round trips, preservation of cell
-and image identities, explicit-threshold gating against a direct calculation,
-within-image spatial counts, and segmentation features with known physical
-coordinates and areas. It uses temporary files and prints installed versions,
-available source revisions and session information. Run it in the library used
-for your analysis. A missing revision is reported as unknown.
+The script checks canonical Parquet and TSV round trips (including text with
+double quotes), preservation of cell and image identities, explicit-threshold
+gating against a direct calculation, within-image spatial counts, and
+segmentation features with known physical coordinates and areas. It uses
+temporary files and prints installed versions, available source revisions and
+session information. Run it in the library used for your analysis. A missing revision is reported as unknown.
 
 The suite-integration workflow runs these checks on Linux, macOS and Windows
 against recorded checkouts of the members' default branches. It also runs

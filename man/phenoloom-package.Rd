@@ -15,7 +15,7 @@ Required dependencies are installed recursively. Optional suggested packages,
 external segmentation environments, and model weights require separate setup.
 The required spatial packages include \pkg{sf} and \pkg{stars}; source builds
 need their documented native libraries. \pkg{imager} is optional in the tested
-\pkg{segmantR} 0.2.0. Consult each member's installation requirements for the
+\pkg{segmantR} 0.3.0. Consult each member's installation requirements for the
 chosen workflow and platform.
 
 The metapackage exports no functions and does not attach its member packages.

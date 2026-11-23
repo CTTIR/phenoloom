@@ -7,6 +7,8 @@
   quotes to come back unchanged from Parquet and TSV storage, which cellspecR
   1.2.0 fixed for TSV directories. It passes with segmantR 0.3.0, cellspecR
   1.2.0, gatekeepR 1.2.0 and phenoscapR 1.0.1.
+* The README and the package help page name segmantR 0.3.0 as the tested
+  version in which `imager` is optional.
 * Install through the CTTIR R-universe (declared in `Additional_repositories`)
   instead of GitHub `Remotes`; the `Remotes` field is removed.
 * Use the maintainer address raban.heller@uni-ulm.de.
