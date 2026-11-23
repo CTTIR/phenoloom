@@ -94,7 +94,8 @@ double quotes), preservation of cell and image identities, explicit-threshold
 gating against a direct calculation, within-image spatial counts, and
 segmentation features with known physical coordinates and areas. It uses
 temporary files and prints installed versions, available source revisions and
-session information. Run it in the library used for your analysis. A missing revision is reported as unknown.
+session information. Run it in the library used for your analysis. A missing
+revision is reported as unknown.
 
 The suite-integration workflow runs these checks on Linux, macOS and Windows
 against recorded checkouts of the members' default branches. It also runs
