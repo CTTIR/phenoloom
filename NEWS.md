@@ -21,6 +21,7 @@
 * Add `cran-comments.md`. CRAN submission remains blocked until segmantR,
   cellspecR, gatekeepR and phenoscapR are available from CRAN.
 * The documentation uses British English (`Language: en-GB`).
+* `CITATION.cff` names the author as R. Heller.
 
 # phenoloom 0.1.2
 
