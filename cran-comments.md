@@ -15,6 +15,10 @@ member packages have been accepted on CRAN.
   Exact prepared member sources were installed into isolated audit libraries;
   ordinary third-party dependencies were reused from the local libraries.
   This is not a clean-machine installation claim.
+* Local macOS (aarch64-apple-darwin), R 4.6.1, 23 November 2026:
+  `R CMD check --as-cran --no-manual` against the installed members
+  segmantR 0.3.0, cellspecR 1.2.0, gatekeepR 1.2.0 and phenoscapR 1.0.1,
+  which also pass `tools/check-suite.R`.
 * GitHub Actions baseline at `56c218a318` (`--as-cran --no-manual`):
   macOS and Windows R release; Ubuntu R devel, release, oldrel-1 and
   oldrel-3. All returned success at the audit snapshot. The oldest row
@@ -38,9 +42,14 @@ member packages have been accepted on CRAN.
     segmantR, cellspecR, gatekeepR, phenoscapR
   Availability using Additional_repositories specification:
     (all four) yes   https://cttir.r-universe.dev
+  Found the following (possibly) invalid URLs:
+    URL: https://doi.org/10.5281/zenodo.24426401
+      From: README.md
+      Status: 404
 
-  This WARNING is the submission blocker described above. Once the members
-  are on CRAN it reduces to the "New submission" NOTE.
+  The strong dependencies are the submission blocker described above. Once
+  the members are on CRAN this reduces to the "New submission" NOTE. The
+  DOI is reserved on Zenodo and resolves once the record is published.
 
 ## Downstream dependencies
 
