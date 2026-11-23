@@ -132,8 +132,8 @@ and asynchronously; a registry entry does not prove that every suite binary is
 already available. phenoloom cannot be submitted to CRAN until its four member
 packages are available from CRAN, because CRAN requires strong dependencies to
 be in mainstream repositories. See the
-[maintenance record](planning/maintenance-2026-11-03.md) for exact observed
-versions, checks and outstanding distribution gates.
+[maintenance record](https://github.com/CTTIR/phenoloom/blob/main/planning/maintenance-2026-11-03.md)
+for exact observed versions, checks and outstanding distribution gates.
 
 ## License
 

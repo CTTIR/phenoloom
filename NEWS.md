@@ -11,6 +11,9 @@
   version in which `imager` is optional.
 * The installation test also checks that `Imports` declares exactly the four
   suite members.
+* The README links the maintenance record by its repository address, so the
+  link also works on the package website and in the source package, which
+  leave out the `planning` folder.
 * Install through the CTTIR R-universe (declared in `Additional_repositories`)
   instead of GitHub `Remotes`; the `Remotes` field is removed.
 * Use the maintainer address raban.heller@uni-ulm.de.
