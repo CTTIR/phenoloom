@@ -11,3 +11,8 @@ invisible(lapply(members, loadNamespace))
 example <- cellspecR::cs_example()
 cellspecR::cs_assert_valid(example)
 stopifnot(nrow(example$cells) > 0L)
+
+# The declared strong dependencies are exactly the four suite members.
+imports <- strsplit(utils::packageDescription("phenoloom")[["Imports"]], ",")[[1L]]
+imports <- sub("[[:space:]]*\\(.*$", "", trimws(imports))
+stopifnot(setequal(imports, members), !anyDuplicated(imports))
