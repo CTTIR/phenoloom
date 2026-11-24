@@ -1,6 +1,8 @@
 # phenoloom <picture class="cttir-readme-logo"><source class="cttir-logo-dark-source" media="(prefers-color-scheme: dark)" srcset="man/figures/logo-with-name-dark.png" /><img src="man/figures/logo-with-name.png" align="right" alt="phenoloom logo" width="120" height="139" /></picture>
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24426401.svg)](https://doi.org/10.5281/zenodo.24426401)
+
+Zenodo DOI reserved for the release: `10.5281/zenodo.24426401` (not yet published).
+
 
 **CTTIR Spatial Biology Suite**
 
